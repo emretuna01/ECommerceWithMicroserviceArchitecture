@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace LoginService.Infrastructure.Persistance.Repositories
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
-    {        
+    {
         private DbSet<T> _entity;
 
         public Repository(AppDbContext appDbContext)
@@ -20,9 +20,10 @@ namespace LoginService.Infrastructure.Persistance.Repositories
             _entity = appDbContext.Set<T>();
         }
 
-        public async Task AddAsync(T entity)
+        public async Task<EntityState> AddAsync(T entity)
         {
-            await _entity.AddAsync(entity);
+            return (await _entity.AddAsync(entity)).State;
+
         }
 
         public async Task AddListAsync(List<T> entities)

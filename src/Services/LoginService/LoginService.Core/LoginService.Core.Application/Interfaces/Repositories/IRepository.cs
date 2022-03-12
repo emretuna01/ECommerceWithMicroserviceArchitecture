@@ -1,4 +1,5 @@
 ﻿using LoginService.Core.Domain.Common;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace LoginService.Core.Application.Interfaces.Repositories
         Task<T> GetWhereByIdAsync(T entity);
         Task<T> GetWhereAsync(Expression<Func<T, bool>> expression);
         Task<List<T>> GetListWhereAsync(Expression<Func<T, bool>> expression);
-        
+
         //others
-        Task AddAsync(T entity);
+        Task<EntityState> AddAsync(T entity);
         Task AddListAsync(List<T> entities);
         void UpdateAsync(T entity);
         void DeleteAsync(T entity);
