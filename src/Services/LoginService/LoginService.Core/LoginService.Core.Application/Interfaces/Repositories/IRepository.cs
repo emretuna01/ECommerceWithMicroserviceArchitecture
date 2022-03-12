@@ -10,14 +10,18 @@ namespace LoginService.Core.Application.Interfaces.Repositories
 {
     public interface IRepository<T> where T : BaseEntity
     {
+        //read
         Task<List<T>> GetListAsync();
-        Task<T> GetWhereAsync(Expression<Func<T,bool>> expression);
         Task<T> GetWhereByIdAsync(T entity);
-        Task<T> AddAsync(T entity);
-        Task<T> AddListAsync(List<T> entities);
-        Task<T> UpdateAsync(T entity);
-        Task<T> DeleteAsync(T entity);
-        Task<T> DeleteListAsync(T entity);
+        Task<T> GetWhereAsync(Expression<Func<T, bool>> expression);
+        Task<List<T>> GetListWhereAsync(Expression<Func<T, bool>> expression);
+        
+        //others
+        Task AddAsync(T entity);
+        Task AddListAsync(List<T> entities);
+        void UpdateAsync(T entity);
+        void DeleteAsync(T entity);
+        void DeleteListAsync(List<T> entity);
 
     }
 }

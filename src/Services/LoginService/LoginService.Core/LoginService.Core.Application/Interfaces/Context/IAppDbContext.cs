@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LoginService.Core.Application.Interfaces.Context
 {
-    public interface IDbContext
+    public interface IAppDbContext
     {
         DbSet<User> Users { get; set; }
     }

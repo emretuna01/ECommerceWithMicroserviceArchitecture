@@ -8,6 +8,6 @@ namespace LoginService.Core.Domain.Common
 {
     public class BaseEntity
     {
-        Guid ObjectId { get; set; }
+        public Guid ObjectId { get; set; }
     }
 }

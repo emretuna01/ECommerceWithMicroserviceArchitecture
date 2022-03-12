@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\LoginService.Core\LoginService.Core.Application\LoginService.Core.Application.csproj" />
+  </ItemGroup>
+
 </Project>

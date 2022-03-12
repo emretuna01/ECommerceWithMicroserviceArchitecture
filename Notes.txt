@@ -5,3 +5,6 @@
 -> EventBus.Factory oluþturulan microservice'lerin ortak kullanacaðý rabbitmqya baðlanabilecekleri bir library olacak
 -> EventBus.RabbitMQ rabbitmq implemantasyonunu tutar.
 
+////////////////
+servisler hakkýnda notlar yaz.
+
