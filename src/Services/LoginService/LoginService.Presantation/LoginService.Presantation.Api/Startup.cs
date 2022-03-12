@@ -1,4 +1,5 @@
 using LoginService.Core.Application;
+using LoginService.Infrastructure.Persistance;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -24,12 +25,13 @@ namespace LoginService.Presantation.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
-
+            //Extensions
             services.AddApplicationService();
-            services.AddPersistanceService();
+            services.AddPersistanceService(Configuration);
+
 
             services.AddControllers();            
             services.AddSwaggerGen(c =>
@@ -38,7 +40,7 @@ namespace LoginService.Presantation.Api
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
