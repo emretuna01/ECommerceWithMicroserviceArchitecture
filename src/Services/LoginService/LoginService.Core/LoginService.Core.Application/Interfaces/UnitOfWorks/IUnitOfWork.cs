@@ -14,6 +14,7 @@ namespace LoginService.Core.Application.Interfaces.UnitOfWorks
         public Task<IDbContextTransaction> BeginTransactionAsync();
         public Task CommitTransactionAsync();
         public Task RollbackTransactionAsync();
+        public Task<int> SaveChangesAsync();
 
 
     }

@@ -37,6 +37,9 @@ namespace LoginService.Infrastructure.Persistance.UnitOfWorks
         {
             await _appDbContext.Database.RollbackTransactionAsync();
         }
-
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _appDbContext.SaveChangesAsync();
+        }
     }
 }

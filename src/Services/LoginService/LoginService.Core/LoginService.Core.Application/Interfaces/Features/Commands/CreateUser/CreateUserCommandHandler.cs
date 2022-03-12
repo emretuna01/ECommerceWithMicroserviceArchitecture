@@ -28,7 +28,8 @@ namespace LoginService.Core.Application.Interfaces.Features.Commands.CreateUser
         {
             User user = _autoMapper.Map<User>(request);
             EntityState result = await _unitOfWork.UserRepository.AddAsync(user);
-            if (result == EntityState.Added)
+            int affectedRowCount= await _unitOfWork.SaveChangesAsync();
+            if (result == EntityState.Added && affectedRowCount>0)
             {
                 return new CreateUserCommandResponse
                 {
