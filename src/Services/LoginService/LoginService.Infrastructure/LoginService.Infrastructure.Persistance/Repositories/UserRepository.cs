@@ -12,6 +12,9 @@ namespace LoginService.Infrastructure.Persistance.Repositories
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
-     
+        public UserRepository(AppDbContext appDbContext) : base(appDbContext)
+        {
+
+        }
     }
 }
