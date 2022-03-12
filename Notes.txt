@@ -1,0 +1,7 @@
+-> ApiGateWays klasöründeki class api servisi için oluþturuldu Daha farklý platform eklenmesi halinde baþka bir class oluþturulmalý 
+	(for mobile,for clients) gibi.
+
+-> EventBus.Base bus servisinin merkez classýdýr hem rabbitmq hem de farklý bus servisleri için ortak metotlarda kullanýlabilir.
+-> EventBus.Factory oluþturulan microservice'lerin ortak kullanacaðý rabbitmqya baðlanabilecekleri bir library olacak
+-> EventBus.RabbitMQ rabbitmq implemantasyonunu tutar.
+

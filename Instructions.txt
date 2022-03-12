@@ -1,0 +1,55 @@
+Proje birbiriyle haberleşebilen 4 farklı servisten oluşmalıdır. 
+
+1- LoginService
+2- CatalogService
+3- CartService
+4- OrderService
+
+talepler
+--------
+0-) Proje birbiriyle haberleşebilen 4 farklı servisten oluşmalıdır.
+
+1-) Kullanıcı LoginService’den token alarak sisteme login olmalıdır. 
+
+2-) Alınan token ile birlikte CatalogService aracılığıyla databasede bulunan ürünleri çekebilecek aynı zamanda 
+	CatalogService üzerindende ürün eklenebiliyor olmalıdır
+
+3-) CatalogService üzerinden çekilen ürünleri CartService aracılığıyla sepete ekleyebilmeli.
+	Sepet Redis üzerinde tutulmalıdır(TTL = 30 dakika).
+
+4-) CartService üzerinden sipariş tamamlanacak ve OrderService’e RabbitMQ ile iletilecek. Sipariş
+tamamlandıktan sonra Redis’te tutulan sepet temizlenecek. 
+
+5-) OrderService aracılığıyla kullanıcı vermiş olduğu siparişleri çekebilecek.
+
+Şartlar
+------
+- Entity framework ve Codefirst yaklaşımıyla geliştirilmeli.
+- Api projesi olacağından servisler Swagger ile verilmeli
+- En az 5 ürün ve 2 kullanıcı seed olarak eklenmeli
+- Siparişleri Redis üzerinden OrderService’den çekilmeli. Redis üzerinden gelecek datalar için TTL = 5
+dakika olmalıdır.
+-Servisler arası data aktarımı için gerekli görülen yerlerde RabbitMQ kullanımı
+
+Kullanılacak Teknolojiler;
+-------------------------
+1- .Net Core 5
+2- PostgreSQL veya MsSQL
+
+
+Artı Puan
+------------
+- Automapper kullanımı
+- MongoDb veya Graylog ile loglama (Middleware)
+- CQRS Pattern kullanımı
+- Projenin dockerize edilmesi
+- Checkout işlemi sonrası mail gönderimi
+- Validation işlemleri
+- Loglar için Monitoring
+- Ürünleri Elastic üzerinden getirme
+
+notlar
+---------
+servisler ayağa farklı kaldırılabilir.
+5 farklı servis tek swaggerla verilecek
+TTL nedir
