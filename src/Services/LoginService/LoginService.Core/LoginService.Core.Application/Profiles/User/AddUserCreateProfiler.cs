@@ -9,12 +9,11 @@ using AutoMapper;
 
 namespace LoginService.Core.Application.Profiles.User
 {
-    public class AddUserCreateProfiler: Profile
+    public class AddUserCreateProfiler : Profile
     {
         public AddUserCreateProfiler()
         {
-            
-            CreateMap<CreateUserCommandRequest, LoginService.Core.Domain.Entities.User > ().ReverseMap();
+            CreateMap<CreateUserCommandRequest, LoginService.Core.Domain.Entities.User>().ReverseMap();
         }
     }
 }

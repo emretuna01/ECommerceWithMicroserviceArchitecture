@@ -1,3 +1,4 @@
+using LoginService.Core.Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace LoginService.Presantation.Api
 {
@@ -26,7 +28,10 @@ namespace LoginService.Presantation.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddApplicationService();
+            services.AddPersistanceService();
+
+            services.AddControllers();            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LoginService.Presantation.Api", Version = "v1" });
