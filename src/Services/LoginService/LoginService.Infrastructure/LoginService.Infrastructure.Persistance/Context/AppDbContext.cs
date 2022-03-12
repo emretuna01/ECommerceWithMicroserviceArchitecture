@@ -22,14 +22,14 @@ namespace LoginService.Infrastructure.Persistance.Context
             modelBuilder.Entity<User>().HasData(
                 new User()
                 {
-                    ObjectId = new Guid(),
+                    ObjectId = Guid.NewGuid(),
                     Email = "admin@outlook.com",
                     Firstname = "admin",
                     Password = "admin"
                 },
                 new User()
                 {
-                    ObjectId = new Guid(),
+                    ObjectId = Guid.NewGuid(),
                     Email = "emretuna@outlook.com",
                     Firstname = "emre",
                     Password = "emre"

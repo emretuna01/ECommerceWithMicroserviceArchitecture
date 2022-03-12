@@ -8,7 +8,7 @@ namespace LoginService.Presantation.Api.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-
+        /*
         // GET: api/<UserController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -40,5 +40,6 @@ namespace LoginService.Presantation.Api.Controllers
         public void Delete(int id)
         {
         }
+        */
     }
 }
