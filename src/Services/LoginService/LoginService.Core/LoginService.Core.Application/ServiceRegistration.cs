@@ -1,4 +1,7 @@
-﻿using MediatR;
+﻿using LoginService.Core.Application.Configurations;
+using LoginService.Core.Application.Interfaces.Dtos;
+using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,6 +18,11 @@ namespace LoginService.Core.Application
         {
             serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
             serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
+            serviceCollection.AddScoped<TokenDto>();
+        }
+        public static void AddAplicationJwtConfigService(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.Configure<JwtConfiguration>(option => configuration.GetSection("JwtConfiguration").Bind(option));
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using LoginService.Core.Application.Interfaces.Features.Commands.CreateUser;
+﻿using LoginService.Core.Application.Interfaces.Dtos;
+using LoginService.Core.Application.Interfaces.Features.Commands.CreateUser;
 using LoginService.Core.Application.Interfaces.Features.Queries.GetAllUsers;
+using LoginService.Core.Application.Interfaces.JwtHandler;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -14,13 +16,15 @@ namespace LoginService.Presantation.Api.Controllers
     public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ITokenHandler _tokenHandler;
 
-        public UserController(IMediator mediator)
+        public UserController(IMediator mediator, ITokenHandler tokenHandler)
         {
             _mediator = mediator;
+            _tokenHandler = tokenHandler;
         }
 
-        // GET: api/<UserController>
+        
         [HttpGet("AllUsers")]
         public Task<List<GetAllUsersQueryResponse>> GetAllUsers()
         {
@@ -34,6 +38,10 @@ namespace LoginService.Presantation.Api.Controllers
             return await _mediator.Send(createUserCommandRequest);
         }
 
-        
+        [HttpGet("Token")]
+        public TokenDto CreateToken()
+        {
+            return _tokenHandler.CreateAccessToken(1);
+        }
     }
 }
