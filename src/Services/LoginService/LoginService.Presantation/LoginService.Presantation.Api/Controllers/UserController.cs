@@ -27,8 +27,9 @@ namespace LoginService.Presantation.Api.Controllers
             _tokenHandler = tokenHandler;
         }
 
+
         [Authorize]
-        [HttpGet("GetAllUsers")]
+        [HttpGet("GetAllUsers")]        
         public Task<List<GetAllUsersQueryResponse>> GetAllUsers()
         {
             return _mediator.Send(new GetAllUsersQueryRequest());

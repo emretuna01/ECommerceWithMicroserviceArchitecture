@@ -38,7 +38,7 @@ namespace LoginService.Presantation.Api
             services.AddPersistanceService(Configuration);
             services.AddScoped<ITokenHandler, tTokenHandler>();
             services.AddAplicationJwtConfigService(Configuration);
-
+            services.AddControllers();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
@@ -49,14 +49,14 @@ namespace LoginService.Presantation.Api
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
 
-                    ValidAudience = Configuration["JwtConfiguration:Audience"],
+                    ValidAudience = Configuration["JwtConfiguration:Audidence"],
                     ValidIssuer = Configuration["JwtConfiguration:Issuer"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtConfiguration:SecretKey"]))
 
                 };
             });
 
-            services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LoginService.Presantation.Api", Version = "v1" });
@@ -67,8 +67,8 @@ namespace LoginService.Presantation.Api
                     Scheme = "Bearer",                    
                     BearerFormat = "JWT",
                     In = ParameterLocation.Header,
-                    Description = "Ýnput kýsmýna aldýðýnýz Token'ý Giriniz"
-                    
+                    Description = "input kýsmýna aldýðýnýz Token'ý Ýçinde <b>Bearer</b> Tagý Ýle Birlikte Giriniz!!!"
+
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement {
                     {
@@ -77,6 +77,7 @@ namespace LoginService.Presantation.Api
                             Reference = new OpenApiReference {
                                 Type = ReferenceType.SecurityScheme,
                                     Id = "Bearer"
+                                   
                             }
                         },
                         new string[] {}
@@ -98,6 +99,7 @@ namespace LoginService.Presantation.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
