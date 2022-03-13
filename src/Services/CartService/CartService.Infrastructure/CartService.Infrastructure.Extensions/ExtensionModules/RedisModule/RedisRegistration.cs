@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CartService.Infrastructure.Extensions.ExtensionModules
+namespace CartService.Infrastructure.Extensions.ExtensionModules.RedisModule
 {
     public static class RedisRegistration
     {

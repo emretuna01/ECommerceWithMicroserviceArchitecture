@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using StackExchange.Redis;
 using CartService.Infrastructure.Extensions.ExtensionModules;
 using CartService.Presantation.Api.Services;
+using CartService.Infrastructure.Extensions.ExtensionModules.RedisModule;
+using CartService.Infrastructure.Extensions;
 
 namespace CartService.Presantation.Api
 {
@@ -32,7 +34,7 @@ namespace CartService.Presantation.Api
             services.AddControllers();
             services.AddSingleton(sp => sp.AddRedisConfiguration(Configuration));
             services.AddSingleton<RedisService>();
-
+            services.AddCartServiceExtensions();
 
             services.AddSwaggerGen(c =>
             {

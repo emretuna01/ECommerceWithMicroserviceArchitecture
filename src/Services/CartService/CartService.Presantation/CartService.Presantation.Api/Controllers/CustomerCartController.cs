@@ -1,4 +1,5 @@
 ﻿using CartService.Core.Domain.Entities;
+using CartService.Infrastructure.Extensions.ExtensionModules.RabbitMqModule;
 using CartService.Presantation.Api.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,16 +15,14 @@ namespace CartService.Presantation.Api.Controllers
     public class CustomerCartController : ControllerBase
     {
         private readonly RedisService _redisService;
+        private readonly RabbitMqBaseModule _rabbitMqBaseModule;
+        private CustomerCart _customerCart;
 
-        public CustomerCartController(RedisService redisService)
+        public CustomerCartController(RedisService redisService, RabbitMqBaseModule rabbitMqBaseModule)
         {
             _redisService = redisService;
-        }
-
-        [HttpGet]
-        public void InsertRedis()
-        {
-            var cc = new CustomerCart
+            _rabbitMqBaseModule = rabbitMqBaseModule;
+            _customerCart = new CustomerCart
             {
                 ObjectId = Guid.NewGuid(),
                 BuyerId = Guid.NewGuid().ToString(),
@@ -38,13 +37,18 @@ namespace CartService.Presantation.Api.Controllers
                     }
                 }
             };
-
-
-            _redisService.GetDb().StringSetAsync(cc.ObjectId.ToString(), JsonSerializer.Serialize(cc));
-
-
         }
 
+        [HttpGet("InsertRedis")]
+        public void InsertRedis()
+        {
+            _redisService.GetDb().StringSetAsync(_customerCart.ObjectId.ToString(), JsonSerializer.Serialize(_customerCart));
+        }
 
+        [HttpGet("SendMessageToRabbitMq")]
+        public void SendMessageToRabbitMq()
+        {
+            _rabbitMqBaseModule.SendMessage(_customerCart);
+        }
     }
 }
