@@ -1,9 +1,12 @@
 ﻿using LoginService.Core.Application.Interfaces.Dtos;
 using LoginService.Core.Application.Interfaces.Features.Commands.CreateUser;
 using LoginService.Core.Application.Interfaces.Features.Queries.GetAllUsers;
+using LoginService.Core.Application.Interfaces.Features.Queries.GetToken;
 using LoginService.Core.Application.Interfaces.JwtHandler;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -24,8 +27,8 @@ namespace LoginService.Presantation.Api.Controllers
             _tokenHandler = tokenHandler;
         }
 
-        
-        [HttpGet("AllUsers")]
+        [Authorize]
+        [HttpGet("GetAllUsers")]
         public Task<List<GetAllUsersQueryResponse>> GetAllUsers()
         {
             return _mediator.Send(new GetAllUsersQueryRequest());
@@ -38,10 +41,16 @@ namespace LoginService.Presantation.Api.Controllers
             return await _mediator.Send(createUserCommandRequest);
         }
 
-        [HttpGet("Token")]
-        public TokenDto CreateToken()
+        [HttpPost("GetToken")]
+        public async Task<GetTokenQueryResponse> CreateToken([FromBody] GetTokenQueryRequest getTokenQueryRequest)
         {
-            return _tokenHandler.CreateAccessToken(1);
+            GetTokenQueryResponse getTokenQueryResponse= await _mediator.Send(getTokenQueryRequest);
+            if (getTokenQueryResponse==null)
+                throw new NullReferenceException();
+            else            
+                return getTokenQueryResponse;
+            
+            
         }
     }
 }
