@@ -7,9 +7,9 @@ Proje birbiriyle haberleşebilen 4 farklı servisten oluşmalıdır.
 
 talepler
 --------
-0-) Proje birbiriyle haberleşebilen 4 farklı servisten oluşmalıdır.
+0-) Proje birbiriyle haberleşebilen 4 farklı servisten oluşmalıdır.[Apigateway kurulucak zaman kalırsa consul implemantasyonu yapılacak]
 
-1-) Kullanıcı LoginService’den token alarak sisteme login olmalıdır. 
+1-) Kullanıcı LoginService’den token alarak sisteme login olmalıdır. [jwt tokenla token üretilecek]
 
 2-) Alınan token ile birlikte CatalogService aracılığıyla databasede bulunan ürünleri çekebilecek aynı zamanda 
 	CatalogService üzerindende ürün eklenebiliyor olmalıdır

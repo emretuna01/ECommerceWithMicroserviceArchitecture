@@ -20,15 +20,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApiGateway", "WebApiGateway", "{8371A589-5C21-4432-9E42-0A5E76D44E99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.ApiGateWay", "src\ApiGateWays\WebApiGateWay\Web.ApiGateWay\Web.ApiGateWay.csproj", "{06CF3B25-6872-4AA6-9ABC-BABAEAD08A96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.ApiGateWay", "src\ApiGateWays\WebApiGateWay\Web.ApiGateWay\Web.ApiGateWay.csproj", "{06CF3B25-6872-4AA6-9ABC-BABAEAD08A96}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventBus", "EventBus", "{50EF9EE3-08D0-4269-A723-56734EA35E7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Base", "src\BuildingBlocks\EventBus\EventBus.Base\EventBus.Base.csproj", "{8CED8937-CA16-41C1-B8DE-A5F24222B414}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Base", "src\BuildingBlocks\EventBus\EventBus.Base\EventBus.Base.csproj", "{8CED8937-CA16-41C1-B8DE-A5F24222B414}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Factory", "src\BuildingBlocks\EventBus\EventBus.Factory\EventBus.Factory.csproj", "{C54E65A4-03D9-49FA-A511-F4FD295A56C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Factory", "src\BuildingBlocks\EventBus\EventBus.Factory\EventBus.Factory.csproj", "{C54E65A4-03D9-49FA-A511-F4FD295A56C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.RabbitMQ", "src\BuildingBlocks\EventBus\EventBus.RabbitMQ\EventBus.RabbitMQ.csproj", "{000121C9-C98C-46C8-9245-BB4AA2ACEC97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.RabbitMQ", "src\BuildingBlocks\EventBus\EventBus.RabbitMQ\EventBus.RabbitMQ.csproj", "{000121C9-C98C-46C8-9245-BB4AA2ACEC97}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoginService", "LoginService", "{3C7CB9F5-CBD4-4005-878B-F3212F72CD93}"
 EndProject
@@ -62,13 +62,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrderService.Core", "OrderS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrderService.Infrastructure", "OrderService.Infrastructure", "{9A18AF44-2D5B-4D1E-A2F8-A845B42B2777}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginService.Core.Domain", "src\Services\LoginService\LoginService.Core\LoginService.Core.Domain\LoginService.Core.Domain.csproj", "{0B69DCE5-F2D7-4568-BDB2-26E29DCA3AA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginService.Core.Domain", "src\Services\LoginService\LoginService.Core\LoginService.Core.Domain\LoginService.Core.Domain.csproj", "{0B69DCE5-F2D7-4568-BDB2-26E29DCA3AA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginService.Core.Application", "src\Services\LoginService\LoginService.Core\LoginService.Core.Application\LoginService.Core.Application.csproj", "{DBAB2EFC-362B-49D1-85A7-46960216439D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginService.Core.Application", "src\Services\LoginService\LoginService.Core\LoginService.Core.Application\LoginService.Core.Application.csproj", "{DBAB2EFC-362B-49D1-85A7-46960216439D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginService.Presantation.Api", "src\Services\LoginService\LoginService.Presantation\LoginService.Presantation.Api\LoginService.Presantation.Api.csproj", "{B87F2F49-A9EC-4826-BB9A-624C9C48938D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginService.Presantation.Api", "src\Services\LoginService\LoginService.Presantation\LoginService.Presantation.Api\LoginService.Presantation.Api.csproj", "{B87F2F49-A9EC-4826-BB9A-624C9C48938D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginService.Infrastructure.Persistance", "src\Services\LoginService\LoginService.Infrastructure\LoginService.Infrastructure.Persistance\LoginService.Infrastructure.Persistance.csproj", "{3356323E-D2E6-4859-8C43-D08B6D32F4D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginService.Infrastructure.Persistance", "src\Services\LoginService\LoginService.Infrastructure\LoginService.Infrastructure.Persistance\LoginService.Infrastructure.Persistance.csproj", "{3356323E-D2E6-4859-8C43-D08B6D32F4D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Core.Domain", "src\Services\CatalogService\CatalogService.Core\CatalogService.Core.Domain\CatalogService.Core.Domain.csproj", "{99EF2BD9-EC6E-4D24-9138-150DC9490E5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Core.Application", "src\Services\CatalogService\CatalogService.Core\CatalogService.Core.Application\CatalogService.Core.Application.csproj", "{83434B69-745C-4BDC-93B8-58BB7C258E28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Infrastructure.Persist", "src\Services\CatalogService\CatalogService.Infrastructure\CatalogService.Infrastructure.Persist\CatalogService.Infrastructure.Persist.csproj", "{639E6E53-F52A-4231-825F-6A1C377078F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Presantation.Api", "src\Services\CatalogService\CatalogService.Presantation\CatalogService.Presantation.Api\CatalogService.Presantation.Api.csproj", "{33EE1641-172C-418B-8987-F10C7673C652}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -108,6 +116,22 @@ Global
 		{3356323E-D2E6-4859-8C43-D08B6D32F4D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3356323E-D2E6-4859-8C43-D08B6D32F4D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3356323E-D2E6-4859-8C43-D08B6D32F4D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99EF2BD9-EC6E-4D24-9138-150DC9490E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99EF2BD9-EC6E-4D24-9138-150DC9490E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99EF2BD9-EC6E-4D24-9138-150DC9490E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99EF2BD9-EC6E-4D24-9138-150DC9490E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83434B69-745C-4BDC-93B8-58BB7C258E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83434B69-745C-4BDC-93B8-58BB7C258E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83434B69-745C-4BDC-93B8-58BB7C258E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83434B69-745C-4BDC-93B8-58BB7C258E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{639E6E53-F52A-4231-825F-6A1C377078F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{639E6E53-F52A-4231-825F-6A1C377078F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{639E6E53-F52A-4231-825F-6A1C377078F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{639E6E53-F52A-4231-825F-6A1C377078F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33EE1641-172C-418B-8987-F10C7673C652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33EE1641-172C-418B-8987-F10C7673C652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33EE1641-172C-418B-8987-F10C7673C652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33EE1641-172C-418B-8987-F10C7673C652}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,6 +166,10 @@ Global
 		{DBAB2EFC-362B-49D1-85A7-46960216439D} = {291798A8-55E8-4A6D-926E-AB2FCB857F27}
 		{B87F2F49-A9EC-4826-BB9A-624C9C48938D} = {5AA1503B-1A55-4464-8324-4E22C5BE9A0B}
 		{3356323E-D2E6-4859-8C43-D08B6D32F4D3} = {D4B6F57C-AA67-4FF6-A8B2-B53D7E30A6EC}
+		{99EF2BD9-EC6E-4D24-9138-150DC9490E5A} = {3FA306E1-DA4B-4200-8ADF-049697A16936}
+		{83434B69-745C-4BDC-93B8-58BB7C258E28} = {3FA306E1-DA4B-4200-8ADF-049697A16936}
+		{639E6E53-F52A-4231-825F-6A1C377078F0} = {3DACF6CA-CE19-4370-B699-31312B171171}
+		{33EE1641-172C-418B-8987-F10C7673C652} = {EA8B1367-E62E-4BA8-87B4-5B0AD7DE9C77}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {328814C8-1EBA-4596-873E-FE22623BEC41}
