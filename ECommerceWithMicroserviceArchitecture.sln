@@ -86,6 +86,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartService.Infrastructure.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartService.Presantation.Api", "src\Services\CartService\CartService.Presantation\CartService.Presantation.Api\CartService.Presantation.Api.csproj", "{5EE14EC7-DEBD-4403-AEF2-7BEA0B236C6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartService.Infrastructure.Extensions", "src\Services\CartService\CartService.Infrastructure\CartService.Infrastructure.Extensions\CartService.Infrastructure.Extensions.csproj", "{52EB35D1-F7E0-4842-9FDC-71F91BE0CBA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -156,6 +158,10 @@ Global
 		{5EE14EC7-DEBD-4403-AEF2-7BEA0B236C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EE14EC7-DEBD-4403-AEF2-7BEA0B236C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EE14EC7-DEBD-4403-AEF2-7BEA0B236C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52EB35D1-F7E0-4842-9FDC-71F91BE0CBA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52EB35D1-F7E0-4842-9FDC-71F91BE0CBA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52EB35D1-F7E0-4842-9FDC-71F91BE0CBA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52EB35D1-F7E0-4842-9FDC-71F91BE0CBA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -198,6 +204,7 @@ Global
 		{9DEE0A70-21C6-4DF8-BCB9-570ED572A9C0} = {165876D4-CC37-4DB0-8533-08487D9673B9}
 		{4F1F0E6D-96CD-473A-99E1-108704FE0F09} = {1D65105C-5CC4-4336-805C-957C1F1A815D}
 		{5EE14EC7-DEBD-4403-AEF2-7BEA0B236C6E} = {6B32F487-2B31-494B-B05A-F1022889C930}
+		{52EB35D1-F7E0-4842-9FDC-71F91BE0CBA7} = {1D65105C-5CC4-4336-805C-957C1F1A815D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {328814C8-1EBA-4596-873E-FE22623BEC41}

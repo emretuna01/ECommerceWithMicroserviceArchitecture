@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using StackExchange.Redis;
+using CartService.Infrastructure.Extensions.ExtensionModules;
 
 namespace CartService.Presantation.Api
 {
@@ -27,6 +29,9 @@ namespace CartService.Presantation.Api
         {
 
             services.AddControllers();
+            services.AddSingleton(ss => ss.AddRedisConfiguration(Configuration));
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CartService.Presantation.Api", Version = "v1" });
@@ -51,6 +56,17 @@ namespace CartService.Presantation.Api
             {
                 endpoints.MapControllers();
             });
+
+           
         }
+        public void Extension(IServiceCollection services)
+        {
+
+            //services.AddSingleton(CartService.Infrastructure.Extensions.ExtensionModules.RedisRegistration.AddRedisConfiguration(services, Configuration));
+           // services.AddSingleton(sp => sp.AddRedisConfiguration(Configuration));
+
+        }
+
+        
     }
 }
