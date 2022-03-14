@@ -1,6 +1,8 @@
-﻿namespace CatalogService.Core.Domain.Entities
+﻿using CatalogService.Core.Domain.Common;
+
+namespace CatalogService.Core.Domain.Entities
 {
-    public class CatalogItem
+    public class CatalogItem : BaseEntity
     {
         public string Name { get; set; }
 
@@ -12,11 +14,11 @@
 
         public string PictureUri { get; set; }
 
-        public int CatalogTypeId { get; set; }
+        public int? CatalogTypeId { get; set; }
 
         public CatalogType CatalogType { get; set; }
 
-        public int CatalogBrandId { get; set; }
+        public int? CatalogBrandId { get; set; }
 
         public CatalogBrand CatalogBrand { get; set; }
 
