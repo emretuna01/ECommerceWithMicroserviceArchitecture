@@ -12,6 +12,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using OrderService.Infrastructure.Extensions;
 using OrderService.Infrastructure.Persistance;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace OrderService.Presantation.Api
 {
@@ -30,10 +33,49 @@ namespace OrderService.Presantation.Api
             services.AddPersistanceService(Configuration);
             services.AddOrderServiceExtensions();
             services.AddControllers();
-           
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateAudience = true,
+                    ValidateIssuer = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+
+                    ValidAudience = Configuration["JwtConfiguration:Audidence"],
+                    ValidIssuer = Configuration["JwtConfiguration:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtConfiguration:SecretKey"]))
+
+                };
+            });
+
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "OrderService.Presantation.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "LoginService.Presantation.Api", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "input kýsmýna aldýðýnýz Token'ý Ýçinde <b>Bearer</b> Tagý Ýle Birlikte Giriniz!!!"
+
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                    {
+                        new OpenApiSecurityScheme {
+
+                            Reference = new OpenApiReference {
+                                Type = ReferenceType.SecurityScheme,
+                                    Id = "Bearer"
+
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
             });
         }
 
@@ -49,6 +91,7 @@ namespace OrderService.Presantation.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
