@@ -31,6 +31,7 @@ namespace OrderService.Infrastructure.Persistance.Context
                     ObjectId = Guid.NewGuid(),
                     Email = "admin@outlook.com",
                     Firstname = "admin",
+                    Username = "admin",
                     Password = "admin"
                 },
                 new User()
@@ -38,6 +39,7 @@ namespace OrderService.Infrastructure.Persistance.Context
                     ObjectId = Guid.NewGuid(),
                     Email = "emretuna@outlook.com",
                     Firstname = "emre",
+                    Username = "emre",
                     Password = "emre"
 
                 }
