@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CatalogService.Core.Application.Interfaces.Features.Commands.CreateCatalogItem;
+using CatalogService.Core.Application.Interfaces.Features.Queries.GetAllCatalogItem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using tCatalogItem = CatalogService.Core.Domain.Entities.CatalogItem;
 
-
 namespace CatalogService.Core.Application.Profiles.CatalogItem
 {
-    public class CreateCatalogItemProfiler : Profile
+    public class GetAllCatalogItemProfiler : Profile
     {
-        public CreateCatalogItemProfiler()
+        public GetAllCatalogItemProfiler()
         {
-            CreateMap<tCatalogItem, CreateCatalogItemCommandRequest>().ReverseMap();
+            CreateMap<tCatalogItem, GetAllCatalogItemQueryResponse>().ReverseMap();
         }
     }
 }
