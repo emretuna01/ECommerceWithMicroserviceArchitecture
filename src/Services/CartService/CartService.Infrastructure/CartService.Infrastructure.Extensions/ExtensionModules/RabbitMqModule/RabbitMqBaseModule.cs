@@ -28,8 +28,7 @@ namespace CartService.Infrastructure.Extensions.ExtensionModules.RabbitMqModule
                 VirtualHost = "/",
                 AutomaticRecoveryEnabled = true                
             }; 
-            //connectionFactory.Uri = new Uri(configuration["RabbitMqConfiguration:ConnectionString"]);
-            //connectionFactory.Uri = new Uri("localhost");
+
             _connection =connectionFactory.CreateConnection();
             _channel = _connection.CreateModel();
         }

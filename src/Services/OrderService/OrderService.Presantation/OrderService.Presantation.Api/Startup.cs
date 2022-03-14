@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OrderService.Infrastructure.Extensions;
 
 namespace OrderService.Presantation.Api
 {
@@ -25,8 +26,9 @@ namespace OrderService.Presantation.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddOrderServiceExtensions();
             services.AddControllers();
+           
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OrderService.Presantation.Api", Version = "v1" });
