@@ -1,6 +1,4 @@
-﻿using LoginService.Core.Application.Configurations;
-using LoginService.Core.Application.Interfaces.Dtos;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;

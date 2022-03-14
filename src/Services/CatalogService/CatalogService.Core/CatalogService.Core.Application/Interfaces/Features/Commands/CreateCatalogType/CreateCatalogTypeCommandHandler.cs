@@ -11,28 +11,28 @@ using System.Threading;
 using System.Threading.Tasks;
 
 
-namespace CatalogService.Core.Application.Interfaces.Features.Commands.CreateCatalogBrand
+namespace CatalogService.Core.Application.Interfaces.Features.Commands.CreateCatalogType
 {
-    public class CreateCatalogTypeCommandHandler : IRequestHandler<CreateCatalogTypeCommandRequest, CreateCatalogTypeCommandResponse>
+    public class CreateCatalogItemCommandHandler : IRequestHandler<CreateCatalogItemCommandRequest, CreateCatalogItemCommandResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _autoMapper;
 
 
-        public CreateCatalogTypeCommandHandler(IUnitOfWork unitOfWork, IMapper autoMapper)
+        public CreateCatalogItemCommandHandler(IUnitOfWork unitOfWork, IMapper autoMapper)
         {
             _unitOfWork = unitOfWork;
             _autoMapper = autoMapper;
         }
 
-        public async Task<CreateCatalogTypeCommandResponse> Handle(CreateCatalogTypeCommandRequest request, CancellationToken cancellationToken)
+        public async Task<CreateCatalogItemCommandResponse> Handle(CreateCatalogItemCommandRequest request, CancellationToken cancellationToken)
         {
-            CatalogBrand catalogBrand  = _autoMapper.Map<CatalogBrand>(request);
-            EntityState result = await _unitOfWork.CatalogBrandRepository.AddAsync(catalogBrand);
+            CatalogType catalogType = _autoMapper.Map<CatalogType>(request);
+            EntityState result = await _unitOfWork.CatalogTypeRepository.AddAsync(catalogType);
             int affectedRowCount= await _unitOfWork.SaveChangesAsync();
             if (result == EntityState.Added && affectedRowCount>0)
             {
-                return new CreateCatalogTypeCommandResponse
+                return new CreateCatalogItemCommandResponse
                 {
                     Message = EntityState.Added.ToString(),
                     Succeed = true
@@ -40,7 +40,7 @@ namespace CatalogService.Core.Application.Interfaces.Features.Commands.CreateCat
             }
             else
             {
-                return new CreateCatalogTypeCommandResponse
+                return new CreateCatalogItemCommandResponse
                 {
                     Message = result.ToString(),
                     Succeed = false

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CatalogService.Core.Application.Interfaces.Features.Commands.CreateCatalogBrand
 {
-    public class CreateCatalogBrandCommandRequest : IRequest<CreateCatalogBrandCommandResponse>
+    public class CreateCatalogTypeCommandRequest : IRequest<CreateCatalogTypeCommandResponse>
     {
         public string Brand { get; set; }
     }

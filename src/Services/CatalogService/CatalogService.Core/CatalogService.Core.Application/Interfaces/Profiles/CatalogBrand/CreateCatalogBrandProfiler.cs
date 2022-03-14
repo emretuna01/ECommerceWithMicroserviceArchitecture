@@ -13,7 +13,7 @@ namespace CatalogService.Core.Application.Interfaces.Profiles.CatalogBrand
     {
         public CreateCatalogBrandProfiler()
         {
-            CreateMap<tCatalogBrand, CreateCatalogBrandCommandRequest>().ReverseMap();
+            CreateMap<tCatalogBrand, CreateCatalogTypeCommandRequest>().ReverseMap();
         }
     }
 }

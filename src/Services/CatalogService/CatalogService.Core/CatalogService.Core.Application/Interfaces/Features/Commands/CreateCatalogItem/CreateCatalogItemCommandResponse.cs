@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CatalogService.Core.Application.Interfaces.Features.Commands.CreateCatalogBrand
+namespace CatalogService.Core.Application.Interfaces.Features.Commands.CreateCatalogItem
 {
-    public class CreateCatalogTypeCommandResponse
+    public class CreateCatalogItemCommandResponse
     {
         public bool Succeed { get; set; }
         public string Message { get; set; }
