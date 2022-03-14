@@ -40,5 +40,12 @@ Kurulum
  - Projede Docker desteği henüz yok bu sebeple database'de scaffolding'i yapabilmek için OrderService.Infrastructure.Persistance katmanının appsettings dosyasına 
    veritabanı connection bilgisi girilmeli. OrderService.Presantation.Api katmanı set as startup project olarak seçilmelidir. Diğer microservis katmanlarının 
    appsettings dosyalarına da veritabanı bilgisi girilmeldir.
+ 
+ Uygulama İçi Notlar
+ -----------------
+ - k.adı: admin şifre:admin girerek direkt token bilgisini alabilirsiniz. Token Bilgisini swagger ekranında ```Bearer jwt_token_key``` şeklinde kaydedip request
+   gönderilebilir.
+   
+![alt text](https://user-images.githubusercontent.com/42046428/158149426-4f947e77-f862-4441-932d-e68b1a0c587b.png)
 
       
