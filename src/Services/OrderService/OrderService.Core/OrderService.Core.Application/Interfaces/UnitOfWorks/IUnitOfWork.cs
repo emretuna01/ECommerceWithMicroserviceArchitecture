@@ -1,5 +1,4 @@
-﻿using LoginService.Core.Application.Interfaces.Repositories;
-using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.EntityFrameworkCore.Storage;
 using OrderService.Core.Application.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
