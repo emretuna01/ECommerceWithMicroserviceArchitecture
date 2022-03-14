@@ -1,4 +1,5 @@
 using CatalogService.Core.Application;
+using LoginService.Infrastructure.Persistance;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,7 @@ namespace CatalogService.Presantation.Api
 
             services.AddControllers();
             services.AddApplicationService();
+            services.AddPersistanceService(Configuration);
 
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -91,6 +93,7 @@ namespace CatalogService.Presantation.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

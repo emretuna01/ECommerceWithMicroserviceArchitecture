@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\LoginService\LoginService.Infrastructure\LoginService.Infrastructure.Persistance\LoginService.Infrastructure.Persistance.csproj" />
     <ProjectReference Include="..\..\CatalogService.Core\CatalogService.Core.Application\CatalogService.Core.Application.csproj" />
     <ProjectReference Include="..\..\CatalogService.Core\CatalogService.Core.Domain\CatalogService.Core.Domain.csproj" />
   </ItemGroup>

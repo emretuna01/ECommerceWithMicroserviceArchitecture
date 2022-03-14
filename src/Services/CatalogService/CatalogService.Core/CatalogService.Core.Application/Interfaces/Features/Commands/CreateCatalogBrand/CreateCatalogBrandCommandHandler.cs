@@ -13,26 +13,26 @@ using System.Threading.Tasks;
 
 namespace CatalogService.Core.Application.Interfaces.Features.Commands.CreateCatalogBrand
 {
-    public class CreateCatalogTypeCommandHandler : IRequestHandler<CreateCatalogTypeCommandRequest, CreateCatalogTypeCommandResponse>
+    public class CreateCatalogBrandCommandHandler : IRequestHandler<CreateCatalogBrandCommandRequest, CreateCatalogBrandCommandResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _autoMapper;
 
 
-        public CreateCatalogTypeCommandHandler(IUnitOfWork unitOfWork, IMapper autoMapper)
+        public CreateCatalogBrandCommandHandler(IUnitOfWork unitOfWork, IMapper autoMapper)
         {
             _unitOfWork = unitOfWork;
             _autoMapper = autoMapper;
         }
 
-        public async Task<CreateCatalogTypeCommandResponse> Handle(CreateCatalogTypeCommandRequest request, CancellationToken cancellationToken)
+        public async Task<CreateCatalogBrandCommandResponse> Handle(CreateCatalogBrandCommandRequest request, CancellationToken cancellationToken)
         {
             CatalogBrand catalogBrand  = _autoMapper.Map<CatalogBrand>(request);
             EntityState result = await _unitOfWork.CatalogBrandRepository.AddAsync(catalogBrand);
             int affectedRowCount= await _unitOfWork.SaveChangesAsync();
             if (result == EntityState.Added && affectedRowCount>0)
             {
-                return new CreateCatalogTypeCommandResponse
+                return new CreateCatalogBrandCommandResponse
                 {
                     Message = EntityState.Added.ToString(),
                     Succeed = true
@@ -40,7 +40,7 @@ namespace CatalogService.Core.Application.Interfaces.Features.Commands.CreateCat
             }
             else
             {
-                return new CreateCatalogTypeCommandResponse
+                return new CreateCatalogBrandCommandResponse
                 {
                     Message = result.ToString(),
                     Succeed = false

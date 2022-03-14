@@ -15,10 +15,21 @@ namespace OrderService.Infrastructure.Persistance.Repositories.UnitOfWorks
         private AppDbContext _appDbContext;
 
 
-        public UnitOfWork(AppDbContext appDbContext, IUserRepository userRepository)
+        public UnitOfWork(AppDbContext appDbContext, 
+            IUserRepository userRepository,
+            ICatalogBrandRepository catalogBrandRepository,
+            ICatalogItemRepository catalogItemRepository,
+            ICatalogTypeRepository catalogTypeRepository,
+            ICustomerCartRepository customerCartRepository,
+            IOrderItemRepository orderItemRepository)
         {
             _appDbContext = appDbContext;
             UserRepository = userRepository;
+            CatalogBrandRepository = catalogBrandRepository;
+            CatalogItemRepository = catalogItemRepository;
+            CustomerCartRepository = customerCartRepository;
+            OrderItemRepository = orderItemRepository;
+            CatalogTypeRepository= catalogTypeRepository;
         }
 
         public IUserRepository UserRepository { get; }

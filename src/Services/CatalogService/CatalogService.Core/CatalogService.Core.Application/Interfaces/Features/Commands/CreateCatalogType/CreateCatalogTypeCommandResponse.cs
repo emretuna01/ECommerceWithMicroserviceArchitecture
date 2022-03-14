@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CatalogService.Core.Application.Interfaces.Features.Commands.CreateCatalogType
 {
-    public class CreateCatalogItemCommandResponse
+    public class CreateCatalogTypeCommandResponse
     {
         public bool Succeed { get; set; }
         public string Message { get; set; }

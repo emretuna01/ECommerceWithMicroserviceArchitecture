@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using tCatalogItem = CatalogService.Core.Domain.Entities.CatalogItem;
 
 
-namespace CatalogService.Core.Application.Interfaces.Profiles.CatalogItem
+namespace CatalogService.Core.Application.Profiles.CatalogItem
 {
     public class CreateCatalogItemProfiler : Profile
     {

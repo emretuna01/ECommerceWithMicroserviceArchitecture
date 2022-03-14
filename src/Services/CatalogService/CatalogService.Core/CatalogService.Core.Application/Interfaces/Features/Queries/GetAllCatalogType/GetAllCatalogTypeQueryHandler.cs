@@ -24,7 +24,7 @@ namespace CatalogService.Core.Application.Interfaces.Features.Queries.GetAllCata
 
         public async Task<List<GetAllCatalogTypeQueryResponse>> Handle(GetAllCatalogTypeQueryRequest request, CancellationToken cancellationToken)
         {
-            List<CatalogBrand> responses = await _unitOfWork.CatalogBrandRepository.GetListAsync();
+            List<CatalogType> responses = await _unitOfWork.CatalogTypeRepository.GetListAsync();
             return  _mapper.Map <List<GetAllCatalogTypeQueryResponse>>(responses);
         }
     }

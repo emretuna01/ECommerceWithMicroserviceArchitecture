@@ -14,7 +14,7 @@ namespace OrderService.Core.Application.Interfaces.UnitOfWorks
         public ICatalogBrandRepository CatalogBrandRepository { get; }
         public ICatalogItemRepository CatalogItemRepository { get; }
         public ICatalogTypeRepository CatalogTypeRepository { get; }
-        public ICustomerCartRepository CustomerCartRepository { get; }
+        public ICustomerCartRepository CustomerCartRepository { get; }        
         public IOrderItemRepository OrderItemRepository { get; }
         public Task<IDbContextTransaction> BeginTransactionAsync();
         public Task CommitTransactionAsync();
