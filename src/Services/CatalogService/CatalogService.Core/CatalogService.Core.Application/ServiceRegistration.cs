@@ -16,7 +16,6 @@ namespace CatalogService.Core.Application
         {
             serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
             serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
-            
         }        
     }
 }

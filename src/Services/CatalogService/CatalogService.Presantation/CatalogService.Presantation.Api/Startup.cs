@@ -1,5 +1,4 @@
 using CatalogService.Core.Application;
-using LoginService.Infrastructure.Persistance;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CatalogService.Infrastructure.Persist;
 
 namespace CatalogService.Presantation.Api
 {
@@ -32,7 +32,7 @@ namespace CatalogService.Presantation.Api
         {
 
             services.AddControllers();
-            services.AddApplicationService();
+            services.AddApplicationService();            
             services.AddPersistanceService(Configuration);
 
 

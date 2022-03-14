@@ -28,7 +28,6 @@ namespace CatalogService.Infrastructure.Persist
 
             //Unit Of Work
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
-
         }
     }
 }

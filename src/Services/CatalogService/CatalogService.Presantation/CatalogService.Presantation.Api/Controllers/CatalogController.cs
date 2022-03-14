@@ -22,6 +22,10 @@ namespace CatalogService.Presantation.Api.Controllers
     public class CatalogController : ControllerBase
     {
         private readonly IMediator _mediator;
+        public CatalogController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
         [HttpGet("GetAllCatalogBrand")]
         public async Task<List<GetAllCatalogBrandQueryResponse>> GetAllCatalogBrand()
