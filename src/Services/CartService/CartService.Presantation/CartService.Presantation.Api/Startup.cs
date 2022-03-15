@@ -12,9 +12,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using StackExchange.Redis;
 using CartService.Infrastructure.Extensions.ExtensionModules;
-using CartService.Presantation.Api.Services;
 using CartService.Infrastructure.Extensions.ExtensionModules.RedisModule;
 using CartService.Infrastructure.Extensions;
+using CartService.Infrastructure.Persistance;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace CartService.Presantation.Api
 {
@@ -33,12 +36,52 @@ namespace CartService.Presantation.Api
 
             services.AddControllers();
             services.AddSingleton(sp => sp.AddRedisConfiguration(Configuration));
-            services.AddSingleton<RedisService>();
             services.AddCartServiceExtensions();
+            services.AddPersistanceService();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateAudience = true,
+                    ValidateIssuer = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+
+                    ValidAudience = Configuration["JwtConfiguration:Audidence"],
+                    ValidIssuer = Configuration["JwtConfiguration:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtConfiguration:SecretKey"]))
+
+                };
+            });
+
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CartService.Presantation.Api", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "input kýsmýna aldýðýnýz Token'ý Ýçinde <b>Bearer</b> Tagý Ýle Birlikte Giriniz!!!"
+
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                    {
+                        new OpenApiSecurityScheme {
+
+                            Reference = new OpenApiReference {
+                                Type = ReferenceType.SecurityScheme,
+                                    Id = "Bearer"
+
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
             });
         }
 
@@ -54,6 +97,7 @@ namespace CartService.Presantation.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -61,16 +105,8 @@ namespace CartService.Presantation.Api
                 endpoints.MapControllers();
             });
 
-           
-        }
-        public void Extension(IServiceCollection services)
-        {
-
-            //services.AddSingleton(CartService.Infrastructure.Extensions.ExtensionModules.RedisRegistration.AddRedisConfiguration(services, Configuration));
-           // services.AddSingleton(sp => sp.AddRedisConfiguration(Configuration));
 
         }
 
-        
     }
 }

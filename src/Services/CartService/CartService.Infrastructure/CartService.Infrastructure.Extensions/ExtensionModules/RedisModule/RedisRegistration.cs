@@ -11,10 +11,11 @@ namespace CartService.Infrastructure.Extensions.ExtensionModules.RedisModule
 {
     public static class RedisRegistration
     {
-        public static ConnectionMultiplexer AddRedisConfiguration(this IServiceProvider serviceCollection,IConfiguration configuration)
+        public static ConnectionMultiplexer AddRedisConfiguration(this IServiceProvider serviceCollection, IConfiguration configuration)
         {
-            ConfigurationOptions redisConfigure = ConfigurationOptions.Parse(configuration["RedisConfiguration:ConnectionString"],true);
+            ConfigurationOptions redisConfigure = ConfigurationOptions.Parse(configuration["RedisConfiguration:ConnectionString"], true);
             redisConfigure.ResolveDns = true;
+
 
             return ConnectionMultiplexer.Connect(redisConfigure);
 
