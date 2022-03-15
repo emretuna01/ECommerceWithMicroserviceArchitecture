@@ -53,3 +53,4 @@ notlar
 servisler ayağa farklı kaldırılabilir.
 5 farklı servis tek swaggerla verilecek
 TTL nedir
+generic response nesesi yarat login servis mesajına ekle

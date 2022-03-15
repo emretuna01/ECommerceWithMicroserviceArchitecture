@@ -70,33 +70,33 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginService.Presantation.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginService.Infrastructure.Persistance", "src\Services\LoginService\LoginService.Infrastructure\LoginService.Infrastructure.Persistance\LoginService.Infrastructure.Persistance.csproj", "{3356323E-D2E6-4859-8C43-D08B6D32F4D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Core.Domain", "src\Services\CatalogService\CatalogService.Core\CatalogService.Core.Domain\CatalogService.Core.Domain.csproj", "{99EF2BD9-EC6E-4D24-9138-150DC9490E5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalogService.Core.Domain", "src\Services\CatalogService\CatalogService.Core\CatalogService.Core.Domain\CatalogService.Core.Domain.csproj", "{99EF2BD9-EC6E-4D24-9138-150DC9490E5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Core.Application", "src\Services\CatalogService\CatalogService.Core\CatalogService.Core.Application\CatalogService.Core.Application.csproj", "{83434B69-745C-4BDC-93B8-58BB7C258E28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalogService.Core.Application", "src\Services\CatalogService\CatalogService.Core\CatalogService.Core.Application\CatalogService.Core.Application.csproj", "{83434B69-745C-4BDC-93B8-58BB7C258E28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Infrastructure.Persist", "src\Services\CatalogService\CatalogService.Infrastructure\CatalogService.Infrastructure.Persist\CatalogService.Infrastructure.Persist.csproj", "{639E6E53-F52A-4231-825F-6A1C377078F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalogService.Infrastructure.Persist", "src\Services\CatalogService\CatalogService.Infrastructure\CatalogService.Infrastructure.Persist\CatalogService.Infrastructure.Persist.csproj", "{639E6E53-F52A-4231-825F-6A1C377078F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Presantation.Api", "src\Services\CatalogService\CatalogService.Presantation\CatalogService.Presantation.Api\CatalogService.Presantation.Api.csproj", "{33EE1641-172C-418B-8987-F10C7673C652}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalogService.Presantation.Api", "src\Services\CatalogService\CatalogService.Presantation\CatalogService.Presantation.Api\CatalogService.Presantation.Api.csproj", "{33EE1641-172C-418B-8987-F10C7673C652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartService.Core.Domain", "src\Services\CartService\CartService.Core\CartService.Core.Domain\CartService.Core.Domain.csproj", "{064B2754-3F66-40CE-85BB-F2D3547A796D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CartService.Core.Domain", "src\Services\CartService\CartService.Core\CartService.Core.Domain\CartService.Core.Domain.csproj", "{064B2754-3F66-40CE-85BB-F2D3547A796D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartService.Core.Application", "src\Services\CartService\CartService.Core\CartService.Core.Application\CartService.Core.Application.csproj", "{9DEE0A70-21C6-4DF8-BCB9-570ED572A9C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CartService.Core.Application", "src\Services\CartService\CartService.Core\CartService.Core.Application\CartService.Core.Application.csproj", "{9DEE0A70-21C6-4DF8-BCB9-570ED572A9C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartService.Infrastructure.Persistance", "src\Services\CartService\CartService.Infrastructure\CartService.Infrastructure.Persistance\CartService.Infrastructure.Persistance.csproj", "{4F1F0E6D-96CD-473A-99E1-108704FE0F09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CartService.Infrastructure.Persistance", "src\Services\CartService\CartService.Infrastructure\CartService.Infrastructure.Persistance\CartService.Infrastructure.Persistance.csproj", "{4F1F0E6D-96CD-473A-99E1-108704FE0F09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartService.Presantation.Api", "src\Services\CartService\CartService.Presantation\CartService.Presantation.Api\CartService.Presantation.Api.csproj", "{5EE14EC7-DEBD-4403-AEF2-7BEA0B236C6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CartService.Presantation.Api", "src\Services\CartService\CartService.Presantation\CartService.Presantation.Api\CartService.Presantation.Api.csproj", "{5EE14EC7-DEBD-4403-AEF2-7BEA0B236C6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartService.Infrastructure.Extensions", "src\Services\CartService\CartService.Infrastructure\CartService.Infrastructure.Extensions\CartService.Infrastructure.Extensions.csproj", "{52EB35D1-F7E0-4842-9FDC-71F91BE0CBA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CartService.Infrastructure.Extensions", "src\Services\CartService\CartService.Infrastructure\CartService.Infrastructure.Extensions\CartService.Infrastructure.Extensions.csproj", "{52EB35D1-F7E0-4842-9FDC-71F91BE0CBA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Core.Application", "src\Services\OrderService\OrderService.Core\OrderService.Core.Application\OrderService.Core.Application.csproj", "{03971AA6-BA6B-4734-A495-814E02281028}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Core.Application", "src\Services\OrderService\OrderService.Core\OrderService.Core.Application\OrderService.Core.Application.csproj", "{03971AA6-BA6B-4734-A495-814E02281028}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Core.Domain", "src\Services\OrderService\OrderService.Core\OrderService.Core.Domain\OrderService.Core.Domain.csproj", "{7213D87C-7F9D-4A8B-869B-7995DA151FDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Core.Domain", "src\Services\OrderService\OrderService.Core\OrderService.Core.Domain\OrderService.Core.Domain.csproj", "{7213D87C-7F9D-4A8B-869B-7995DA151FDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Infrastructure.Persistance", "src\Services\OrderService\OrderService.Infrastructure\OrderService.Infrastructure.Persistance\OrderService.Infrastructure.Persistance.csproj", "{63B967EE-545B-4818-AF38-8A05916BDA24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Infrastructure.Persistance", "src\Services\OrderService\OrderService.Infrastructure\OrderService.Infrastructure.Persistance\OrderService.Infrastructure.Persistance.csproj", "{63B967EE-545B-4818-AF38-8A05916BDA24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Presantation.Api", "src\Services\OrderService\OrderService.Presantation\OrderService.Presantation.Api\OrderService.Presantation.Api.csproj", "{798554FA-DF99-426B-8BFE-5830E8858F36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Presantation.Api", "src\Services\OrderService\OrderService.Presantation\OrderService.Presantation.Api\OrderService.Presantation.Api.csproj", "{798554FA-DF99-426B-8BFE-5830E8858F36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Infrastructure.Extensions", "src\Services\OrderService\OrderService.Infrastructure\OrderService.Infrastructure.Extensions\OrderService.Infrastructure.Extensions.csproj", "{59C10318-A12E-4578-AB7B-C8B0913BE5AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Infrastructure.Extensions", "src\Services\OrderService\OrderService.Infrastructure\OrderService.Infrastructure.Extensions\OrderService.Infrastructure.Extensions.csproj", "{59C10318-A12E-4578-AB7B-C8B0913BE5AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

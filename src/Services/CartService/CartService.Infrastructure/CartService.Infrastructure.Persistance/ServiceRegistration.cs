@@ -15,6 +15,8 @@ namespace CartService.Infrastructure.Persistance
         {
             services.AddSingleton<RedisContext>();
             services.AddSingleton<RedisCacheService>();
+            services.AddSingleton<RabbitMqContext>();
+            services.AddSingleton<RabbitMqService>();
         }
     }
 }

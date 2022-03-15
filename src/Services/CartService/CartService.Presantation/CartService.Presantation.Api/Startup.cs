@@ -18,6 +18,7 @@ using CartService.Infrastructure.Persistance;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using CartService.Infrastructure.Extensions.ExtensionModules.RabbitMqModule;
 
 namespace CartService.Presantation.Api
 {
@@ -35,9 +36,9 @@ namespace CartService.Presantation.Api
         {
 
             services.AddControllers();
-            services.AddSingleton(sp => sp.AddRedisConfiguration(Configuration));
-            services.AddCartServiceExtensions();
+            services.AddSingleton(sp => sp.AddRedisConfiguration(Configuration));            
             services.AddPersistanceService();
+            services.Configure<RabbitMqConfiguration>(Configuration.GetSection("RabbitMqConfiguration"));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
