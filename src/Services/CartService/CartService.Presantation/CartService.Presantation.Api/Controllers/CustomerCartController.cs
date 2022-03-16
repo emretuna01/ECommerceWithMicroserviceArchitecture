@@ -15,7 +15,7 @@ namespace CartService.Presantation.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class CustomerCartController : ControllerBase
     {
         private readonly RedisCacheService _redisCacheService;

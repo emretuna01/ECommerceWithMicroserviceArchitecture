@@ -1,10 +1,14 @@
-﻿using OrderService.Infrastructure.Persistance.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using OrderService.Core.Application.Interfaces.UnitOfWorks;
+using OrderService.Core.Domain.Entities;
+using OrderService.Infrastructure.Persistance.Context;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace OrderService.Infrastructure.Persistance.Services
@@ -13,14 +17,21 @@ namespace OrderService.Infrastructure.Persistance.Services
     {
         private readonly RabbitMqContext _rabbitMqContext;
         private readonly IModel _channel;
-        public RabbitMqService(RabbitMqContext rabbitMqContext)
+        private IUnitOfWork _unitOfWork;
+
+        public RabbitMqService(RabbitMqContext rabbitMqContext, IUnitOfWork unitOfWork)
         {
             _rabbitMqContext = rabbitMqContext;
             _channel = _rabbitMqContext.Channel;
+            _unitOfWork = unitOfWork;
         }
 
-        public void RabbitMqListener(string exchange = "direct_CustomerCart", string routingKey = "default")
+        public async Task RabbitMqListener(IUnitOfWork unitOfWork,string exchange = "direct_CustomerCart", string routingKey = "default")
         {
+            if (unitOfWork!=null)
+            {
+                _unitOfWork = unitOfWork;
+            }
             _channel.ExchangeDeclare(exchange, type: ExchangeType.Direct);
             string queueName = _channel.QueueDeclare().QueueName;
             _channel.QueueBind(queue: queueName, exchange: exchange, routingKey: routingKey);
@@ -29,13 +40,19 @@ namespace OrderService.Infrastructure.Persistance.Services
             EventingBasicConsumer consumer = new EventingBasicConsumer(_channel);
             _channel.BasicConsume(queueName, false, consumer);
 
+            CustomerCart customerCart = null;                      
+            consumer.Received += async (sender, e) =>
+              {
+                  _channel.BasicAck(e.DeliveryTag, false);
+                  customerCart = JsonSerializer.Deserialize<CustomerCart>(Encoding.UTF8.GetString(e.Body.ToArray()));
+                  await _unitOfWork.CustomerCartRepository.AddAsync(customerCart);
+                  customerCart = null;
+              };
 
-            consumer.Received += (sender, e) =>
-            {
-                _channel.BasicAck(e.DeliveryTag, false);
-            };
-
+            
 
         }
     }
+
+
 }

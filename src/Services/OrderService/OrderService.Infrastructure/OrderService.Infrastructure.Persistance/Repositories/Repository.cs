@@ -23,7 +23,6 @@ namespace OrderService.Infrastructure.Persistance.Repositories
         public async Task<EntityState> AddAsync(T entity)
         {
             return (await _entity.AddAsync(entity)).State;
-
         }
 
         public async Task AddListAsync(List<T> entities)

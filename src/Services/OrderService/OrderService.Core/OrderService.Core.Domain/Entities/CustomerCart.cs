@@ -17,5 +17,6 @@ namespace OrderService.Core.Domain.Entities
         public User Buyer { get; set; }
 
         public List<CatalogItem> Items { get; set; }
+        public CartStatus CartStatus { get; set; } = CartStatus.Start;
     }
 }

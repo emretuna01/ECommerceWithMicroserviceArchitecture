@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using OrderService.Core.Application.Interfaces.UnitOfWorks;
 using OrderService.Infrastructure.Extensions.ExtensionModules.RabbitMqModule;
+using OrderService.Infrastructure.Persistance.Services;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -7,21 +11,24 @@ namespace OrderService.Presantation.Api.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class OrderServiceController : ControllerBase
     {
-        private readonly RabbitMqConsumerModule _rabbitMqConsumerModule;
+        private readonly RabbitMqService _rabbitMqService;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public OrderServiceController(RabbitMqConsumerModule rabbitMqConsumerModule)
+        public OrderServiceController(RabbitMqService rabbitMqService, IUnitOfWork unitOfWork)
         {
-            _rabbitMqConsumerModule = rabbitMqConsumerModule;
-            _rabbitMqConsumerModule.RabbitMqListener();
+            _rabbitMqService = rabbitMqService;
+            _unitOfWork = unitOfWork;
         }
 
-        // GET: api/<OrderServiceController>
+
         [HttpGet]
-        public string Get()
+        public async Task GetListenRabbitMq()
         {
-            return "test";
+            await _rabbitMqService.RabbitMqListener(_unitOfWork);            
+          
         }
     }
 }

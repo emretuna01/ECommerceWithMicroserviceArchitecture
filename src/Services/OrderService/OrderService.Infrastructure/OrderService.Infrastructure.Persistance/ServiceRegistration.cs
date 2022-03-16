@@ -26,11 +26,11 @@ namespace OrderService.Infrastructure.Persistance
             serviceCollection.AddScoped<IOrderItemRepository, OrderItemRepository>();
 
             //Unit Of Work
-            serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
+            serviceCollection.AddTransient<IUnitOfWork, UnitOfWork>();
 
             //RabbitMq
             serviceCollection.AddSingleton<RabbitMqContext>();
-            serviceCollection.AddSingleton<RabbitMqService>();
+            serviceCollection.AddScoped<RabbitMqService>();
         }
     }
 }

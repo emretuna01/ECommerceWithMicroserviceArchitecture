@@ -1,4 +1,5 @@
-﻿using OrderService.Core.Application.Interfaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using OrderService.Core.Application.Interfaces.Repositories;
 using OrderService.Core.Domain.Entities;
 using OrderService.Infrastructure.Persistance.Context;
 using System;
@@ -13,8 +14,7 @@ namespace OrderService.Infrastructure.Persistance.Repositories
     public class CustomerCartRepository : Repository<CustomerCart>, ICustomerCartRepository
     {
         public CustomerCartRepository(AppDbContext appDbContext) : base(appDbContext)
-        {
-
+        {     
         }
     }
 }

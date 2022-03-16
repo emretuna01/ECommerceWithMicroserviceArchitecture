@@ -9,7 +9,8 @@ namespace CartService.Core.Domain.Entities
 {
     public class CustomerCart : BaseEntity
     {
-        public string BuyerId { get; set; }
+        public Guid BuyerId { get; set; }        
+        public User Buyer { get; set; }
         public List<CatalogItem> Items { get; set; }
         public CartStatus CartStatus { get; set; } = CartStatus.Start;
     }
