@@ -25,6 +25,8 @@ Kullanılan Teknolojiler / Yaklaşımlar / Mimariler
  -----------------
  - Microsevice Architecture
  - Onion Architecture
+ - Redis
+ - RabbitMq
  - CQRS Patern
  - JWT Token
  - Code First
