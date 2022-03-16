@@ -12,26 +12,29 @@ namespace CartService.Infrastructure.Persistance.Context
     public class RabbitMqContext
     {
         private readonly RabbitMqConfiguration _rabbitMqConfiguration;
-        private readonly ConnectionFactory connectionFactory;        
+        private readonly ConnectionFactory connectionFactory;
+
+        private readonly IConnection _connection;
+        public  IModel Channel { get; set; }
+
 
         public RabbitMqContext(IOptions<RabbitMqConfiguration> rabbitMqConfiguration)
         {
             _rabbitMqConfiguration = rabbitMqConfiguration.Value;
             connectionFactory = new ConnectionFactory()
             {
-                HostName = _rabbitMqConfiguration.HostName,
+                HostName = _rabbitMqConfiguration.Host,
                 UserName = _rabbitMqConfiguration.UserName,
                 Password = _rabbitMqConfiguration.Password,
                 VirtualHost = _rabbitMqConfiguration.VirtualHost,
                 AutomaticRecoveryEnabled = _rabbitMqConfiguration.AutomaticRecoveryEnabled
             };
+            _connection = connectionFactory.CreateConnection();
+            Channel = _connection.CreateModel();
 
         }
 
-        public  IModel AddRabbitMqConfiguration()
-        {
-            return connectionFactory.CreateConnection().CreateModel();
-        }
+     
 
     }
 }

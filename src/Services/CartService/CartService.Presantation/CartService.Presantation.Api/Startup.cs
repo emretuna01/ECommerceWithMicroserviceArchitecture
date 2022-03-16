@@ -37,8 +37,8 @@ namespace CartService.Presantation.Api
 
             services.AddControllers();
             services.AddSingleton(sp => sp.AddRedisConfiguration(Configuration));            
+            services.Configure<RabbitMqConfiguration>(option=> Configuration.GetSection("RabbitMqConfiguration").Bind(option));
             services.AddPersistanceService();
-            services.Configure<RabbitMqConfiguration>(Configuration.GetSection("RabbitMqConfiguration"));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {

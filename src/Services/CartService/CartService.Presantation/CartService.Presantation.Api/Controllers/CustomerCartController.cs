@@ -33,12 +33,24 @@ namespace CartService.Presantation.Api.Controllers
            return await _redisCacheService.Set(customerCart.ObjectId.ToString(), customerCart);
         }
 
-        [HttpGet("SendCustomerCartToRabbitMq")]
-        public bool SendCustomerCartToRabbitMq([FromBody] CustomerCart customerCart)
+        [HttpPost("DeleteFromRedis")]
+        public async Task<bool> DeleteFromRedis([FromQuery] string objectid)
+        {
+            return await _redisCacheService.Remove(objectid);
+        }
+
+
+        [HttpPost("SendCustomerCartToRabbitMq")]
+        public async Task<bool> SendCustomerCartToRabbitMq([FromBody] CustomerCart customerCart)
         {
             customerCart.CartStatus = CartStatus.Done;
-            _rabbitMqService.SendMessage(customerCart);
-            return customerCart.CartStatus==CartStatus.Done ? true:false;
+            await _redisCacheService.Remove(customerCart.ObjectId.ToString());
+            bool setResult = await _redisCacheService.Set(customerCart.ObjectId.ToString(), customerCart);
+            if (setResult)
+                _rabbitMqService.SendMessage(customerCart);
+
+            CustomerCart resultCustomerCart= await _redisCacheService.Get(customerCart.ObjectId.ToString(), customerCart);
+            return  resultCustomerCart.CartStatus== CartStatus.Done ? true : false;
         }
 
     }

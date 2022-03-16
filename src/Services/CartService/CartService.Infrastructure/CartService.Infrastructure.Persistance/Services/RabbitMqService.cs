@@ -17,19 +17,19 @@ namespace CartService.Infrastructure.Persistance.Services
         public RabbitMqService(RabbitMqContext rabbitMqContext)
         {
             _rabbitMqContext = rabbitMqContext;
-            _channel = _rabbitMqContext.AddRabbitMqConfiguration();
+            _channel = _rabbitMqContext.Channel;
         }
 
-        public void SendMessage(CustomerCart customerCart)
+        public void SendMessage(CustomerCart customerCart,string exchange="direct_CustomerCart", string routingKey = "default")
         {
-            _channel.ExchangeDeclare("direct_CustomerCart", type: ExchangeType.Direct);
+            _channel.ExchangeDeclare(exchange, type: ExchangeType.Direct);
             byte[] message = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(customerCart));
 
 
             IBasicProperties properties = _channel.CreateBasicProperties();
             properties.Persistent = true;
 
-            _channel.BasicPublish(exchange: "direct_CustomerCart", routingKey: "default", basicProperties: properties, body: message);
+            _channel.BasicPublish(exchange: exchange, routingKey: routingKey, basicProperties: properties, body: message);
             
         }
     }
