@@ -29,6 +29,7 @@ namespace LoginService.Core.Application.Interfaces.Features.Queries.GetToken
         public async Task<GetTokenQueryResponse> Handle(GetTokenQueryRequest request, CancellationToken cancellationToken)
         {
             User user=null;
+            GetTokenQueryResponse getTokenQueryResponse= new GetTokenQueryResponse();
             if (request != null)            
                user= await _unitOfWork.UserRepository.GetWhereAsync(z => z.Username==request.Username && z.Password==request.Password);
 
@@ -37,9 +38,16 @@ namespace LoginService.Core.Application.Interfaces.Features.Queries.GetToken
                 tokenDto= _tokenHandler.CreateAccessToken(20);
 
             if (tokenDto != null)
-                return _mapper.Map<GetTokenQueryResponse>(tokenDto);
+            {  getTokenQueryResponse = _mapper.Map<GetTokenQueryResponse>(tokenDto);
+                getTokenQueryResponse.Message = "Kullanıcı adı ve şifre doğru";
+                return getTokenQueryResponse;
+            }
+            else
+            {
+                getTokenQueryResponse.Message = "Kullanıcı adı ya da şifre bulunamadı";
+            }
 
-            return null;
+            return getTokenQueryResponse;
 
         }
     }

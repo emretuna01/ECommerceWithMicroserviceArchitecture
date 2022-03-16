@@ -46,7 +46,7 @@ namespace OrderService.Infrastructure.Persistance.Repositories.UnitOfWorks
 
         public async Task<IDbContextTransaction> BeginTransactionAsync()
         {
-            return await _appDbContext.Database.BeginTransactionAsync();
+            return await _appDbContext.Database.BeginTransactionAsync();            
         }
 
         public async Task CommitTransactionAsync()

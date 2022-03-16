@@ -27,6 +27,19 @@ namespace LoginService.Presantation.Api.Controllers
             _tokenHandler = tokenHandler;
         }
 
+        [HttpPost("GetToken")]
+        public async Task<GetTokenQueryResponse> CreateToken([FromBody] GetTokenQueryRequest getTokenQueryRequest)
+        {
+            GetTokenQueryResponse getTokenQueryResponse = await _mediator.Send(getTokenQueryRequest);
+            return getTokenQueryResponse;
+        }
+
+        [HttpPost("AddUser")]
+        public async Task<CreateUserCommandResponse> AddUser([FromBody] CreateUserCommandRequest createUserCommandRequest)
+        {
+            return await _mediator.Send(createUserCommandRequest);
+        }
+
 
         [Authorize]
         [HttpGet("GetAllUsers")]        
@@ -36,22 +49,7 @@ namespace LoginService.Presantation.Api.Controllers
         }
 
 
-        [HttpPost("AddUser")]
-        public async Task<CreateUserCommandResponse> AddUser([FromBody] CreateUserCommandRequest createUserCommandRequest)
-        {
-            return await _mediator.Send(createUserCommandRequest);
-        }
 
-        [HttpPost("GetToken")]
-        public async Task<GetTokenQueryResponse> CreateToken([FromBody] GetTokenQueryRequest getTokenQueryRequest)
-        {
-            GetTokenQueryResponse getTokenQueryResponse= await _mediator.Send(getTokenQueryRequest);
-            if (getTokenQueryResponse==null)
-                throw new NullReferenceException();
-            else            
-                return getTokenQueryResponse;
-            
-            
-        }
+
     }
 }

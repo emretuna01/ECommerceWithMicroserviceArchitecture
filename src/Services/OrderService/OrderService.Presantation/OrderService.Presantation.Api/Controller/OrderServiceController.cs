@@ -11,7 +11,7 @@ namespace OrderService.Presantation.Api.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class OrderServiceController : ControllerBase
     {
         private readonly RabbitMqService _rabbitMqService;
@@ -27,7 +27,7 @@ namespace OrderService.Presantation.Api.Controller
         [HttpGet]
         public async Task GetListenRabbitMq()
         {
-            await _rabbitMqService.RabbitMqListener(_unitOfWork);            
+            await _rabbitMqService.RabbitMqListener();            
           
         }
     }

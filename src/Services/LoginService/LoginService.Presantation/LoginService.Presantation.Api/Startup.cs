@@ -76,8 +76,7 @@ namespace LoginService.Presantation.Api
                             
                             Reference = new OpenApiReference {
                                 Type = ReferenceType.SecurityScheme,
-                                    Id = "Bearer"
-                                   
+                                    Id = "Bearer"                                   
                             }
                         },
                         new string[] {}

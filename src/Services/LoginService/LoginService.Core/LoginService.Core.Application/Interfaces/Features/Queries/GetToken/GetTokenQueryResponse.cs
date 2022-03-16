@@ -10,5 +10,6 @@ namespace LoginService.Core.Application.Interfaces.Features.Queries.GetToken
     {
         public string AccessToken { get; set; }
         public DateTime ExpireTime { get; set; }
+        public string Message { get; set; }
     }
 }
