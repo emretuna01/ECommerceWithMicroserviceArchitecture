@@ -1,19 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using OrderService.Infrastructure.Persistance.Context;
+using Microsoft.Extensions.DependencyInjection;
 using OrderService.Core.Application.Interfaces.Repositories;
-using OrderService.Infrastructure.Persistance.Repositories;
 using OrderService.Core.Application.Interfaces.UnitOfWorks;
+using OrderService.Infrastructure.Persistance.Context;
+using OrderService.Infrastructure.Persistance.Repositories;
 using OrderService.Infrastructure.Persistance.Repositories.UnitOfWorks;
+using OrderService.Infrastructure.Persistance.Services;
 
 namespace OrderService.Infrastructure.Persistance
-{ 
+{
     public static class ServiceRegistration
     {
         public static void AddPersistanceService(this IServiceCollection serviceCollection, IConfiguration configuration)
@@ -31,6 +27,10 @@ namespace OrderService.Infrastructure.Persistance
 
             //Unit Of Work
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            //RabbitMq
+            serviceCollection.AddSingleton<RabbitMqContext>();
+            serviceCollection.AddSingleton<RabbitMqService>();
         }
     }
 }
